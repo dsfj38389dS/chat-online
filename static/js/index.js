@@ -1,5 +1,5 @@
 const app = () => {
-  const socket = io('http://localhost:3000');
+  const socket = io('https://chat-rlvf.onrender.com');
   const msgInput = document.querySelector('.message-input');
   const msgList = document.querySelector('.messages-list');
   const sendBtn = document.querySelector('.send-btn');
@@ -8,10 +8,8 @@ const app = () => {
   console.log(messages);
   const getMessages = async () => {
     try {
-      const { data } = await axios.get('http://localhost:3000/api/chat');
-      console.log(data);
+      const { data } = await axios.get('https://chat-rlvf.onrender.com/api/chat');
       renderMessages(data);
-
       data.forEach((item) => messages.push(item));
     } catch (error) {
       console.log('222');
